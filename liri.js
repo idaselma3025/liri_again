@@ -16,7 +16,6 @@ var userSearch="";
 for (var i =3; i<userParams.length; i++){
   userSearch = userSearch + " " + userParams[i];
 };
-console.log(userSearch);
 
 switch (action) {
   case "my-tweets":
