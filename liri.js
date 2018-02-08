@@ -82,10 +82,18 @@ function movie(){
       // Parse the body of the site and recover just the imdbRating
       // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
       // console.log(JSON.parse(body));
+      var ratingsLength = JSON.parse(body).Ratings.length;
+
+      for (var i = 0; i<JSON.parse(body).Ratings.length; i++){
+        var rating= JSON.parse(body).Ratings[i].Value;
+        var ratingSource =JSON.parse(body).Ratings[i].Source;
+        if(rating){
+          console.log(ratingSource+ " rating : " + rating);
+        }
+      }
       console.log("movie_title: "+JSON.parse(body).Title);
       console.log("release_year: "+JSON.parse(body).Year);
-      console.log("IMDB_rating: "+ JSON.parse(body).imdbRating);
-      console.log("tomatoes_rating: "+JSON.parse(body).Ratings[1].Value);
+
       console.log("production_location: "+JSON.parse(body).Country);
       console.log("movie_language: "+ JSON.parse(body).Language);
       console.log("movie_plot: "+ JSON.parse(body).Plot);
